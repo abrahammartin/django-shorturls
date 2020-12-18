@@ -5,9 +5,6 @@ from django.http import HttpResponse
 from . import views
 
 
-def handler404(req):
-    return HttpResponse(status=404)
-
 urlpatterns = [
     re_path(
         r'^(?P<prefix>{0!s})(?P<tiny>\w+)$'.format(
