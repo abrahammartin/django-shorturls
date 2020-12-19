@@ -33,10 +33,10 @@ class RedirectViewTestCase(TestCase):
         settings.SHORTEN_FULL_BASE_URL = None
         response = self.client.get(
             '/A{0!s}'.format(enc(54321)), HTTP_HOST='example.org')
-        print('/A{0!s}'.format(enc(54321)))
-        #self.assertEqual(response.status_code, 301)
-        #self.assertEqual(response['Location'],
-        #                 'http://example.org/animal/54321/')
+        print(response)
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response['Location'],
+                         'http://example.org/animal/54321/')
 
     def test_redirect_complete_url(self):
         """
